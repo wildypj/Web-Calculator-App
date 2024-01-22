@@ -13,6 +13,11 @@ const clearDisplay = () =>{
     display.value = "";
 }
 
+const clearLastCharacter = () => {
+    const currentValue = display.value;
+    updateDisplay(currentValue.slice(0, -1));
+}
+
 const calculate = () =>{
 
     try{
@@ -34,5 +39,7 @@ document.addEventListener('keydown', (event) => {
         calculate();
     } else if (key === 'Escape') {
         clearDisplay();
+    } else if (key === 'Backspace') {
+        clearLastCharacter();
     }
 });
